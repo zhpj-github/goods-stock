@@ -41,6 +41,9 @@ namespace GoodsStock.Helper
                     case "raw_quantity":
                         col.Caption = "原库存量";
                         break;
+                    case "check_time":
+                        col.Caption = "盘点时间";
+                        break;
                     default:
                         break;
                 }
@@ -50,7 +53,7 @@ namespace GoodsStock.Helper
             SetDataTableCaption(dataTable);
             foreach (DataColumn col in dataTable.Columns) {
                 dataGridView.Columns[col.ColumnName].HeaderText = col.Caption;
-                if (col.ColumnName.Contains("id")) {
+                if (col.ColumnName.ToLower().Contains("id")) {
                     dataGridView.Columns[col.ColumnName].Visible = false;
                 }
             }
