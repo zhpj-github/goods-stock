@@ -26,7 +26,7 @@ namespace GoodsStock.Model
         /// <summary>
         /// 盘点时间(NOT NULL)
         /// </summary>
-        [DataOperate(IsWrite =false)]
+        [DataOperate()]
         public DateTime Check_time { set; get; } = DateTime.Now;
         /// <summary>
         /// 备注
