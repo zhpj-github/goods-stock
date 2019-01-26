@@ -26,22 +26,29 @@ namespace GoodsStock
         }
         
         private void TextBoxCode_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter) {
-                SetGoodsStock(textBoxCode.Text.Trim());
-                textBoxCode.Text = "";
-                textBoxCode.Focus();
-            }
+            //if (e.KeyCode == Keys.Enter) {
+            //    SetGoodsStock(textBoxCode.Text.Trim());
+            //    textBoxCode.Text = "";
+            //    textBoxCode.Focus();
+            //}
         }
 
         private void SetGoodsStock(string code) {
             DataTable dt = this.dataGridView1.DataSource as DataTable;
+            bool has = false;
             foreach (DataRow dr in dt.Rows) {
                 if (string.Equals(code, dr["code"].ToString(), StringComparison.OrdinalIgnoreCase)) {
                     int.TryParse(dr["quantity"].ToString(), out int count);
                     count+=1;
                     dr["quantity"] = count;
+                    has = true;
                     break;
                 }
+            }
+            if (!has) {
+                string msg = "商品编码为【{0}】的商品不存在，请添加后再盘点\r\n";
+                msg = string.Format(msg, code);
+                textBoxMsg.Text += msg;
             }
         }
 
@@ -71,6 +78,16 @@ namespace GoodsStock
                 return false;
             }
             return true;
+        }
+
+        private void TextBoxCode_KeyPress(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar == System.Convert.ToChar(13)) {
+                SetGoodsStock(textBoxCode.Text.Trim());
+                textBoxCode.Text = "";
+                textBoxCode.Focus();
+                // to do 业务
+                e.Handled = true;
+            }
         }
     }
 }

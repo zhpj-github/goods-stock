@@ -37,6 +37,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBoxMsg = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -46,7 +47,7 @@
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Location = new System.Drawing.Point(438, 9);
+            this.buttonSave.Location = new System.Drawing.Point(722, 9);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 0;
@@ -58,7 +59,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(522, 9);
+            this.buttonCancel.Location = new System.Drawing.Point(806, 9);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 1;
@@ -67,6 +68,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBoxMsg);
             this.panel1.Controls.Add(this.textBoxCode);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -76,7 +78,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 79);
+            this.panel1.Size = new System.Drawing.Size(902, 79);
             this.panel1.TabIndex = 2;
             // 
             // textBoxCode
@@ -86,6 +88,7 @@
             this.textBoxCode.Size = new System.Drawing.Size(195, 21);
             this.textBoxCode.TabIndex = 5;
             this.textBoxCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxCode_KeyDown);
+            this.textBoxCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxCode_KeyPress);
             // 
             // label3
             // 
@@ -136,7 +139,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 79);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(618, 311);
+            this.panel2.Size = new System.Drawing.Size(902, 311);
             this.panel2.TabIndex = 3;
             // 
             // dataGridView1
@@ -152,7 +155,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(618, 311);
+            this.dataGridView1.Size = new System.Drawing.Size(902, 311);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel3
@@ -162,15 +165,24 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 390);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(618, 40);
+            this.panel3.Size = new System.Drawing.Size(902, 40);
             this.panel3.TabIndex = 4;
+            // 
+            // textBoxMsg
+            // 
+            this.textBoxMsg.Location = new System.Drawing.Point(576, 12);
+            this.textBoxMsg.Multiline = true;
+            this.textBoxMsg.Name = "textBoxMsg";
+            this.textBoxMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxMsg.Size = new System.Drawing.Size(305, 56);
+            this.textBoxMsg.TabIndex = 6;
             // 
             // DlgCheckBillEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(618, 430);
+            this.ClientSize = new System.Drawing.Size(902, 430);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBoxCode;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxMsg;
     }
 }
